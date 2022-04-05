@@ -1,0 +1,8 @@
+.canvas{
+    margin-left: 700px;
+    margin-top: 100px;
+    background-color: rgb(0, 0, 0);
+    background-image: url('./images/stars.jpg');
+    border: 5px solid rgba(0, 0, 0, 0.027);
+    border-radius: 400px;
+}

@@ -51,8 +51,8 @@ function actualizarHora() {
 
  
     cxt.beginPath();
-    let xMoon = 65 + xEarth + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
-    let yMoon = 65 + yEarth + 60 * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
+    let xMoon = 65 + 100 + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
+    let yMoon = 65 + 100 + 60 * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
     cxt.drawImage(DOMMoon,xMoon,yMoon,70,70); 
     cxt.closePath;
     cxt.fill();

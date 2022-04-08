@@ -4,7 +4,6 @@ var cxt = c.getContext("2d");
 var DOMSun = document.getElementById('imageSun');
 var DOMEarth = document.getElementById('imageEarth');
 var DOMMoon = document.getElementById('imageMoon');
-let hours12 = 0;
 
 function actualizarContexto(){
     console.log("Se actualiza contexto");
@@ -14,7 +13,6 @@ function actualizarContexto(){
 function actualizarHora() {
     
     let time = new Date();
-    
     cxt.beginPath();
 
     if (time.getHours() > 12){
@@ -23,20 +21,14 @@ function actualizarHora() {
         hours12 = parseFloat(time.getHours() + "." + ((time.getMinutes()*99)/60));
     }
 
-/*     console.group("SUN");
-    console.info(hours12); 
-    console.info( Math.cos(((30 * (hours12-3)) * Math.PI) / 180));
-    console.info( Math.sin(((30 * (hours12-3)) * Math.PI) / 180));
-    console.groupEnd();
- */
-
-    let xSun = 50 + 100  * Math.cos(((30 * (hours12-3)) * (Math.PI)) / (180));
-    let ySun = 50 + 100  * Math.sin(((30 * (hours12-3)) * (Math.PI)) / (180));
+/*     let xSun = 50 + 100  * Math.cos(((30 * (hours12-3)) * (Math.PI)) / (180));
+    let ySun = 50 + 100  * Math.sin(((30 * (hours12-3)) * (Math.PI)) / (180)); */
+    let xSun = 50 + 100  * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
+    let ySun = 50 + 100  * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
     cxt.drawImage(DOMSun,xSun,ySun,400,400);
     cxt.closePath;
     cxt.fill();
     
-
 
     cxt.beginPath();
     let xEarth = 100 + xSun + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
@@ -51,8 +43,8 @@ function actualizarHora() {
 
  
     cxt.beginPath();
-    let xMoon = 65 + 100 + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
-    let yMoon = 65 + 100 + 60 * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
+    let xMoon = 65 + xEarth + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
+    let yMoon = 65 + yEarth + 60 * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
     cxt.drawImage(DOMMoon,xMoon,yMoon,70,70); 
     cxt.closePath;
     cxt.fill();

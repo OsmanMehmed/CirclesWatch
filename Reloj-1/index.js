@@ -53,7 +53,7 @@ function actualizarHora() {
     console.log(seconds);
 
 
- 
+
     cxt.beginPath();
     let xMoon = 65 + xEarth + 60 * Math.cos(((6* (time.getSeconds()-15) * Math.PI) / 180));
     let yMoon = 65 + yEarth + 60 * Math.sin(((6* (time.getSeconds()-15) * Math.PI) / 180));
